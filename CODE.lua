@@ -5749,17 +5749,6 @@ MainTab:AddToggle({
                         for i,v in pairs(game:GetService("Workspace").Enemies:GetChildren()) do
                             if v.Name == _G.SelectBoss then
                                 if v:FindFirstChild("Humanoid") and v:FindFirstChild("HumanoidRootPart") and v.Humanoid.Health > 0 then
-                                    CheckBossQuest(_G.SelectBoss)
-                                    if BypassTP then
-                                    if (game.Players.LocalPlayer.Character.HumanoidRootPart.Position - CFrameBoss.Position).Magnitude > 2000 then
-                                    BTP(CFrameBoss)
-                                    wait(3)
-                                    elseif (game.Players.LocalPlayer.Character.HumanoidRootPart.Position - CFrameBoss.Position).Magnitude < 2000 then
-                                    TP1(CFrameBoss)
-                                    end
-                                    else
-                                    TP1(CFrameBoss)
-                                    end
                                     repeat task.wait()
                                         AutoHaki()
                                         EquipWeapon(_G.SelectWeapon)
