@@ -2357,7 +2357,7 @@ MainTab:AddToggle({
                                     [1] = PosMonMasteryFruit.Position
                                 }
                                 game:GetService("Players").LocalPlayer.Character[game:GetService("Players").LocalPlayer.Character:FindFirstChildOfClass("Tool").Name].RemoteEvent:FireServer(unpack(args))                        
-                                game:GetService("VirtualInputManager"):SendKeyEvent(true,"Z",false,game)
+                                game:GetService("VirtualInputManager"):SendKeyEvent(true,"Z",true,game)
                                 game:GetService("VirtualInputManager"):SendKeyEvent(false,"Z",false,game)
                             end
                             if _G.SkillX then          
@@ -2437,36 +2437,40 @@ MainTab:AddToggle({
                                 game:GetService("VirtualInputManager"):SendKeyEvent(false,"V",false,game)
                             end
                         elseif game:GetService("Players").LocalPlayer.Character:FindFirstChild(game:GetService("Players").LocalPlayer.Data.DevilFruit.Value) then
-                            if _G.SkillZ then 
+                            if _G.SkillZ and _G.HoldZ then 
                                 local args = {
                                     [1] = PosMonMasteryFruit.Position
                                 }
                                 game:GetService("Players").LocalPlayer.Character[game:GetService("Players").LocalPlayer.Character:FindFirstChildOfClass("Tool").Name].RemoteEvent:FireServer(unpack(args))                         
                                 game:GetService("VirtualInputManager"):SendKeyEvent(true,"Z",false,game)
+                                wait(_G.HoldZ)
                                 game:GetService("VirtualInputManager"):SendKeyEvent(false,"Z",false,game)
                             end
-                            if _G.SkillX then
+                            if _G.SkillX and _G.HoldX then
                                 local args = {
                                     [1] = PosMonMasteryFruit.Position
                                 }
                                 game:GetService("Players").LocalPlayer.Character[game:GetService("Players").LocalPlayer.Character:FindFirstChildOfClass("Tool").Name].RemoteEvent:FireServer(unpack(args))                           
                                 game:GetService("VirtualInputManager"):SendKeyEvent(true,"X",false,game)
+                                wait(_G.HoldX)
                                 game:GetService("VirtualInputManager"):SendKeyEvent(false,"X",false,game)
                             end
-                            if _G.SkillC then
+                            if _G.SkillC and _G.HoldC then
                                 local args = {
                                     [1] = PosMonMasteryFruit.Position
                                 }
                                 game:GetService("Players").LocalPlayer.Character[game:GetService("Players").LocalPlayer.Character:FindFirstChildOfClass("Tool").Name].RemoteEvent:FireServer(unpack(args))                           
                                 game:GetService("VirtualInputManager"):SendKeyEvent(true,"C",false,game)
+                                wait(_G.HoldC)
                                 game:GetService("VirtualInputManager"):SendKeyEvent(false,"C",false,game)
                             end
-                            if _G.SkillV then
+                            if _G.SkillV and _G.HoldV then
                                 local args = {
                                     [1] = PosMonMasteryFruit.Position
                                 }
                                 game:GetService("Players").LocalPlayer.Character[game:GetService("Players").LocalPlayer.Character:FindFirstChildOfClass("Tool").Name].RemoteEvent:FireServer(unpack(args))
                                 game:GetService("VirtualInputManager"):SendKeyEvent(true,"V",false,game)
+                                wait(_G.HoldV)
                                 game:GetService("VirtualInputManager"):SendKeyEvent(false,"V",false,game)
                             end
                         end
@@ -6232,6 +6236,19 @@ SettingTab:AddToggle({
 	end    
 }) 
 
+SettingTab:AddSlider({
+	Name = "Hold Z",
+	Min = 0,
+	Max = 5,
+	Default = 0,
+	Color = Color3.fromRGB(255,255,255),
+	Increment = 1,
+	ValueName = "Second",
+	Callback = function(Value)
+		_G.HoldZ = Value
+	end    
+})
+
 SettingTab:AddToggle({
 	Name = "Skill X",
 	Default = true,
@@ -6239,6 +6256,19 @@ SettingTab:AddToggle({
 		_G.SkillX = Value
 	end    
 }) 
+
+SettingTab:AddSlider({
+	Name = "Hold X",
+	Min = 0,
+	Max = 5,
+	Default = 0,
+	Color = Color3.fromRGB(255,255,255),
+	Increment = 1,
+	ValueName = "Second",
+	Callback = function(Value)
+		_G.HoldX = Value
+	end    
+})
 
 SettingTab:AddToggle({
 	Name = "Skill C",
@@ -6248,6 +6278,19 @@ SettingTab:AddToggle({
 	end    
 }) 
 
+SettingTab:AddSlider({
+	Name = "Hold C",
+	Min = 0,
+	Max = 5,
+	Default = 0,
+	Color = Color3.fromRGB(255,255,255),
+	Increment = 1,
+	ValueName = "Second",
+	Callback = function(Value)
+		_G.HoldC = Value
+	end    
+})
+
 SettingTab:AddToggle({
 	Name = "Skill V",
 	Default = true,
@@ -6255,6 +6298,19 @@ SettingTab:AddToggle({
 		_G.SkillV = Value
 	end    
 }) 
+
+SettingTab:AddSlider({
+	Name = "Hold V",
+	Min = 0,
+	Max = 5,
+	Default = 0,
+	Color = Color3.fromRGB(255,255,255),
+	Increment = 1,
+	ValueName = "Second",
+	Callback = function(Value)
+		_G.HoldV = Value
+	end    
+})
 
 SettingTab:AddToggle({
 	Name = "Buso Haki",
