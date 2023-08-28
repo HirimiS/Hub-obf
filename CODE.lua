@@ -7557,7 +7557,7 @@ spawn(function()
       									AutoHaki()
       									EquipWeapon(_G.SelectWeapon)
                                           NameTarget = v.Name
-                                          TP1(v.HumanoidRootPart.CFrame * CFrame.new(0,0,5))
+                                          topos(game.Players:FindFirstChild(_G.SelectPly).Character.HumanoidRootPart.CFrame * CFrame.new(0,5,0))
                                           v.HumanoidRootPart.CanCollide = false
     			                          v.HumanoidRootPart.Size = Vector3.new(60, 60, 60)
                                           Click()
