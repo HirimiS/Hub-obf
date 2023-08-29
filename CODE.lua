@@ -1851,7 +1851,7 @@ SettingsTab:AddLabel("https://youtube.com/@hirimii0901")
 
 SettingsTab:AddLabel("Join For Discord") 
 
-SettingsTab:AddLabel("https://discord.gg/dJq24Ytyax") 
+SettingsTab:AddLabel("https://discord.gg/T7edk64xMR") 
 
 SettingsTab:AddLabel("I From 🇻🇳") 
 
