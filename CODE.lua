@@ -7713,7 +7713,6 @@ spawn(function()
       	 end)
       	end
       end)
-    end
 
     V4Tab:AddToggle({
         Name = "Kill Player When Trial Complete [Spam Skill]",
