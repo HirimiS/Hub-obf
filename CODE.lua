@@ -7701,7 +7701,7 @@ spawn(function()
       									AutoHaki()
       									EquipWeapon(_G.SelectWeapon)
                                           NameTarget = v.Name
-                                          topos(game.Players:FindFirstChild(_G.SelectPly).Character.HumanoidRootPart.CFrame * CFrame.new(0,5,0))
+                                          topos(game.Players:FindFirstChild(v.Name).Character.HumanoidRootPart.CFrame * CFrame.new(0,5,0))
                                           v.HumanoidRootPart.CanCollide = false
     			                          v.HumanoidRootPart.Size = Vector3.new(60, 60, 60)
                                           Click()
@@ -7714,6 +7714,50 @@ spawn(function()
       	end
       end)
     end
+
+    V4Tab:AddToggle({
+        Name = "Kill Player When Trial Complete [Spam Skill]",
+        Default = false,
+        Callback = function(Value)
+            KillPlayerSpam = Value
+            StopTween(KillPlayerSpam)
+        end    
+    }) 
+    
+    spawn(function()
+              while wait() do 
+                  pcall(function()
+                      if KillPlayerSpam then
+                              for i,v in pairs(game:GetService("Workspace").Characters:GetChildren()) do
+                                  if v.Name ~= game.Players.LocalPlayer.Name and (v.HumanoidRootPart.Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude <= 100 then
+                                    if v.Humanoid.Health > 0 then
+                                      repeat wait()
+                                              AutoHaki()
+                                              EquipWeapon(_G.SelectWeapon)
+                                              NameTarget = v.Name
+                                              topos(game.Players:FindFirstChild(v.Name).Character.HumanoidRootPart.CFrame * CFrame.new(0,5,0))
+                                              v.HumanoidRootPart.CanCollide = false
+                                              v.HumanoidRootPart.Size = Vector3.new(60, 60, 60)
+                                              Click()
+                                              game:GetService("VirtualInputManager"):SendKeyEvent(true,122,false,game.Players.LocalPlayer.Character.HumanoidRootPart)
+							                  game:GetService("VirtualInputManager"):SendKeyEvent(false,122,false,game.Players.LocalPlayer.Character.HumanoidRootPart)
+							                  wait(.2)
+							                  game:GetService("VirtualInputManager"):SendKeyEvent(true,120,false,game.Players.LocalPlayer.Character.HumanoidRootPart)
+							                  game:GetService("VirtualInputManager"):SendKeyEvent(false,120,false,game.Players.LocalPlayer.Character.HumanoidRootPart)
+							                  wait(.2)
+							                  game:GetService("VirtualInputManager"):SendKeyEvent(true,99,false,game.Players.LocalPlayer.Character.HumanoidRootPart)
+							                  game:GetService("VirtualInputManager"):SendKeyEvent(false,99,false,game.Players.LocalPlayer.Character.HumanoidRootPart)
+							                  wait(.2)
+							                  game:GetService("VirtualInputManager"):SendKeyEvent(false,"C",false,game.Players.LocalPlayer.Character.HumanoidRootPart)
+                                      until not KillPlayer or not v.Parent or v.Humanoid.Health <= 0 
+                                    end
+                                  end
+                              end
+                  end
+               end)
+              end
+          end)
+        end
 
 local RaidTab = Window:MakeTab({
 	Name = "Raid",
